@@ -1,21 +1,16 @@
 const functions = require("firebase-functions");
+const express = require("express");
+const cors = require ("cors")
 
-exports.Kenobi = functions.https.onRequest((req, res) => {
-    res.send('Hello there. Ahhh general kenobi.')
-}) 
+const app = express()
+app.use(cors());
 
+exports.api = functions.https.onRequest(app)
 
+app.get('/test', (req, res) => {
+    res.send('Wow, it actually worked.')
+})
 
-
-
-
-
-
-
-// Create and Deploy Your First Cloud Functions
-// https://firebase.google.com/docs/functions/write-firebase-functions
-
-// exports.helloWorld = functions.https.onRequest((request, response) => {
-//   functions.logger.info("Hello logs!", {structuredData: true});
-//   response.send("Hello from Firebase!");
-// });
+app.get('/anotherone', (req, res) => {
+    res.send('this is gas')
+})
