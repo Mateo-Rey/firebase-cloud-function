@@ -14,7 +14,3 @@ app.get('/test', (req, res) => {
 app.get('/anotherone', (req, res) => {
     res.send('this is gas')
 })
-
-app.delete('/delte-one', (req,res) => {
-    Array.splice(3,1)
-})
